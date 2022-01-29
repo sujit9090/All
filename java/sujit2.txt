@@ -1,0 +1,35 @@
+package Sujit;
+    abstract class Car{
+	abstract void cost();
+	abstract void milage();
+}
+    class Hyundai extends Car{
+    	void cost() {
+    		System.out.println("Hyundai details: "+" cost is 12lakh");
+    	}
+    	void milage() {
+    		System.out.println("milage is 18km");
+    	}
+    }
+    class Audi extends Car{
+    	void cost() {
+    		System.out.println("Audi details: "+"cost is 50akhs");
+    	}
+    	void milage() {
+    		System.out.println("milage is 15km");
+    	}
+    }
+public class Abstract {
+
+	public static void main(String[] args) {
+	 Hyundai H=new Hyundai();
+	 H.cost();
+	 H.milage();
+     Audi A=new Audi();
+	 A.cost();
+	 A.milage();
+
+	}
+
+}
+ 
