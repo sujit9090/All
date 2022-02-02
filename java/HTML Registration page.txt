@@ -1,0 +1,29 @@
+<html>
+<body bgcolor="cyan" text align=center>
+<h1>Welcome To  Registration page</h1>
+<form action="" method="get"align="center">
+UserName<input type="text" name="UserName"placeholder="Enter username"><br>
+password<input type="password" name="password"placeholder="Enter password"><br>
+Email<input type=   "text" name="email"placeholder="Enter password"><br>
+phone number<input type="text" name="num"placeholder="Enter email"><br><br>
+Select City
+<select>
+<option value="Odisha">Odisha</option>
+<option value="Hydrabad">Hydrabad</option>
+ 
+</select>
+<br>
+Select Stream-:
+<input type="radio" id="cse" name="fav_language" value="CSE">
+<label for="cse">CSE</label> 
+<input type="radio" id="ece" name="fav_language" value="ECE">
+<label for="ece">ECE</label> 
+<input type="radio" id="Mech" name="fav_language" value="Mech">
+<label for="civil">Mech</label><br>
+<br>
+Gender-:
+<input type="radio">Male</input> 
+<input type="radio">Female</input><br><br>
+<button type="btn">Submit</button>
+</body>
+</html>
