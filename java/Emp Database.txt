@@ -1,0 +1,94 @@
+package Sujit;
+import java.sql.*;
+import java.util.Scanner;
+ public class EmpDatabase  
+ {    
+		static Scanner sc=new Scanner(System.in);
+  static void insert(Statement s) throws SQLException
+    {
+		System.out.println("Enter EmpId ");
+		System.out.println("EmpName");
+		System.out.println("EmpSalary");
+		int EmpId = sc.nextInt();
+		String EmpName = sc.next();
+		int EmpSalary = sc.nextInt();
+		int A = s.executeUpdate("insert into employee values("+EmpId+",'"+EmpName+"',"+EmpSalary+")");
+		if(A != 0)
+				{
+			System.out.println("Employee Data sucessfully Inserted");
+		      }
+	}
+   static void delete(Statement s ) throws SQLException {
+		System.out.println("Enter the EmpId which id  you want to delete :");
+		int EmpId = sc.nextInt();
+		int A = s.executeUpdate("delete from employee where EmpId = "+EmpId+" ");
+		if(A != 0) {
+			System.out.println("Employee Data sucessfully Deleted");
+		}
+	}
+ static void select(Statement s) throws SQLException {
+		
+		ResultSet R = s.executeQuery("select * from employee");
+		while(R.next()) {
+			System.out.println(R.getInt(1)+" "+R.getString(2)+" "+R.getInt(3));
+		}	
+	}
+  static void update(Statement s) throws SQLException
+  {
+		
+		int A = s.executeUpdate("update employee set salary = salary+ "+1200+"");
+		if(A != 0) {
+			System.out.println("Employee Data sucessfully Updated");
+		}
+	}
+  
+ 
+  private static char ch;
+	public static void main(String[] args)throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/company", "root", "Meta@123");
+		
+		if(con!=null) {
+			System.out.println("Connection Sucessfull");
+		}
+			else
+			{
+				System.out.println("Connection not Sucessfull");
+			}
+		Statement s = con.createStatement();
+		EmpDatabase E=new EmpDatabase();
+		char ch=' ';
+		
+		while(ch != 'n') {
+			System.out.println("Employee database Enter your choice\n1.insert\n2.update\n3.delete\n4.select");
+			Scanner sc = new Scanner(System.in);
+			int num = sc.nextInt();
+			switch(num) {
+			case 1:
+				E.insert(s);
+				break;
+			case 2:
+				E.update(s);
+				break;
+			case 3 :
+				E.delete(s);
+				break;
+			case 4:
+				E.select(s);
+				break;
+			default:
+				System.out.println("exit");
+			}
+			System.out.println("\n If you want to continue! Enter yes/no");
+			ch = sc.next().charAt(0);
+			if(ch == 'n') {
+				System.out.println("Exit...Thank u visit again");
+			}
+		}
+	}
+
+  }
+ 
+
+  
+  
